@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prasenjit Tadake | Cybersecurity Analyst</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Share Tech Mono', monospace;
+            background: #05070d;
+            color: #00ff9f;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 1px solid #00ff9f;
+        }
+
+        .nav-link {
+            color: #00ff9f !important;
+            margin-left: 15px;
+        }
+
+        .nav-link:hover {
+            text-shadow: 0 0 5px #00ff9f;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid #00ff9f;
+            margin-bottom: 20px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00ff9f;
+        }
+
+        .section {
+            padding: 80px 20px;
+        }
+
+        .terminal {
+            background: #000;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #00ff9f;
+        }
+
+        .project {
+            border: 1px solid #00ff9f;
+            padding: 15px;
+            margin: 15px 0;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px #00ff9f;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #00ff9f;
+            margin-top: 40px;
+        }
+
+        /* Fade Animation */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .typing {
+            border-right: 2px solid #00ff9f;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark fixed-top px-4">
+        <span class="navbar-brand">PRASENJIT.exe</span>
+        <div>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <img src="images/profile.jpeg" class="profile-img">
+            <h1>PRASENJIT</h1>
+            <p class="typing" id="typing-text"></p>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section container hidden">
+        <h2>> whoami</h2>
+        <div class="terminal">
+            <p>
+                Cybersecurity analyst focused on identifying vulnerabilities,
+                securing systems, and analyzing digital threats.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section container hidden">
+        <h2>> skills --list</h2>
+        <div class="terminal">
+            <p>• C Programming</p>
+            <p>• Python Programming</p>
+            <p>• Java Programming</p>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section container hidden">
+        <h2>> projects --view</h2>
+
+        <div class="project">
+            <h5>Port Scanner</h5>
+            <p>Python tool to scan open ports using socket programming.</p>
+        </div>
+
+        <div class="project">
+            <h5>Password Strength Checker</h5>
+            <p>Analyzes password security using complexity rules.</p>
+        </div>
+
+        <div class="project">
+            <h5>File Integrity Checker</h5>
+            <p>Uses SHA hashing to detect file modifications.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section container text-center hidden">
+        <h2>> contact --init</h2>
+        <p>Email: tadakeprasenjit@gmail.com</p>
+        <p>GitHub: github.com/PRASEN21</p>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>© 2026 Prasenjit | Secure Systems. Trusted Logic.</p>
+    </div>
+
+    <!-- JS -->
+    <script>
+        // Typing Effect
+        const text = "Cybersecurity Analyst | Offensive Security | CS Student";
+        let i = 0;
+        function typing() {
+            if (i < text.length) {
+                document.getElementById("typing-text").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typing, 50);
+            }
+        }
+        typing();
+
+        // Scroll Reveal Animation
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        });
+
+        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+
+</html>
